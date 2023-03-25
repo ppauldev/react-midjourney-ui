@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "deploy": "gh-pages -d dist -t true",
-    "build": "tsc && vite build",
+    "build": "tsc && vite build --base=/react-midjourney-ui/",
     "preview": "vite preview"
   },
   "dependencies": {
