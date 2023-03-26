@@ -9,8 +9,12 @@ body {
   width: 100vw;
 }
 
+#preload {
+  display: none;
+}
+
 .responsive-background-image {
-  background-image: url('./assets/ppdotdev_midjourney_react_demo_background.png');
+  background-image: url('./assets/ppdotdev_midjourney_react_demo_background.webp');
   background-position: bottom right;
   background-repeat: no-repeat;
   background-size: contain;
@@ -19,8 +23,29 @@ body {
   max-height: 70vh;
   position: absolute;
   right: 0;
+  transition: background-image 0.4s;
   width: 60vw;
   z-index: 10;
+}
+
+.stage-25 {
+  background-image: url('./assets/ppdotdev_midjourney_react_demo_background_circle_25.webp');
+  transition: background-image 0.4s;
+}
+
+.stage-50 {
+  background-image: url('./assets/ppdotdev_midjourney_react_demo_background_circle_50.webp');
+  transition: background-image 0.4s;
+}
+
+.stage-75 {
+  background-image: url('./assets/ppdotdev_midjourney_react_demo_background_circle_75.webp');
+  transition: background-image 0.4s;
+}
+
+.stage-100 {
+  background-image: url('./assets/ppdotdev_midjourney_react_demo_background_circle_100.webp');
+  transition: background-image 0.4s;
 }
 
 .navbar {
@@ -58,11 +83,36 @@ body {
   white-space: nowrap;
 }
 
+.navbar-name:hover {
+  cursor: default;
+}
+
 .navbar-menu {
   font-weight: 600;
   margin-right: 40px;
   position: absolute;
   right: 0;
+}
+
+.navbar-menu-github {
+  color: #314152;
+  height: 1.6em;
+  text-decoration: none;
+  width: 1.6em;
+}
+
+.navbar-menu-github:hover {
+  color: #314152;
+  cursor: pointer;
+}
+
+.navbar-menu-vite {
+  margin-left: 10px;
+}
+
+.navbar-menu-vite>img {
+  height: 1.6em;
+  width: 1.6em;
 }
 
 .content {
@@ -93,7 +143,7 @@ body {
 }
 
 .content section h3 {
-  font-size: 2rem;
+  font-size: 1.8rem;
   margin: 0;
   padding: 0;
 }
@@ -102,7 +152,8 @@ body {
   align-items: center;
   display: flex;
   flex-direction: row;
-  margin-top: 14px;
+  margin-top: 20px;
+  z-index: 20;
 }
 
 .content section form input {
@@ -116,9 +167,16 @@ body {
   height: 60px;
   padding: 0 0 0 20px;
   width: 400px;
+  z-index: 20;
+}
+
+.content section form input:focus {
+  outline: none;
+  z-index: 20;
 }
 
 .content section form button {
+  align-items: center;
   background-color: #314152;
   border-top-right-radius: 14px;
   border-bottom-right-radius: 14px;
@@ -128,9 +186,88 @@ body {
   -moz-box-shadow: 0px 4px 10px 4px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 4px 10px 4px rgba(0, 0, 0, 0.1);
   color: white;
+  display: flex;
+  justify-content: center;
+  font-size: 1rem;
   font-weight: 400;
   height: 60px;
+  outline: none;
   padding: 0;
   text-transform: uppercase;
+  transition: none;
   width: 140px;
+  z-index: 20;
+}
+
+.content section form button:hover {
+  border: none;
+  cursor: pointer;
+  z-index: 20;
+}
+
+.loader {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.loader div {
+  position: absolute;
+  top: 35px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #fff;
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+
+.loader div:nth-child(1) {
+  left: 8px;
+  animation: loader1 0.6s infinite;
+}
+
+.loader div:nth-child(2) {
+  left: 8px;
+  animation: loader2 0.6s infinite;
+}
+
+.loader div:nth-child(3) {
+  left: 32px;
+  animation: loader2 0.6s infinite;
+}
+
+.loader div:nth-child(4) {
+  left: 56px;
+  animation: loader3 0.6s infinite;
+}
+
+@keyframes loader1 {
+  0% {
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes loader3 {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0);
+  }
+}
+
+@keyframes loader2 {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  100% {
+    transform: translate(24px, 0);
+  }
 }
