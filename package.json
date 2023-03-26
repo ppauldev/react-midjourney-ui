@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "deploy": "gh-pages -d dist -t true",
+    "deploy": "npm run build && gh-pages -d dist -t true",
     "build": "tsc && vite build --base=/react-midjourney-ui/",
     "preview": "vite preview"
   },
