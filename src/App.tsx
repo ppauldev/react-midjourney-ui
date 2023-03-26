@@ -13,7 +13,6 @@ const App = () => {
       </div>
       <div className={`responsive-background-image ${'stage-' + signUpStage}`} />
       <div id="preload">
-        <img src={`${import.meta.env.DEV ? "/src" : "/react-midjourney-ui"}/assets/ppdotdev_midjourney_react_demo_background_circle_0.webp`} />
         <img src={`${import.meta.env.DEV ? "/src" : "/react-midjourney-ui"}/assets/ppdotdev_midjourney_react_demo_background_circle_25.webp`} />
         <img src={`${import.meta.env.DEV ? "/src" : "/react-midjourney-ui"}/assets/ppdotdev_midjourney_react_demo_background_circle_50.webp`} />
         <img src={`${import.meta.env.DEV ? "/src" : "/react-midjourney-ui"}/assets/ppdotdev_midjourney_react_demo_background_circle_75.webp`} />
