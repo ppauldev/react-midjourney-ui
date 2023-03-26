@@ -13,11 +13,11 @@ const App = () => {
       </div>
       <div className={`responsive-background-image ${'stage-' + signUpStage}`} />
       <div id="preload">
-        <img src={`${import.meta.env.DEV ? "/src" : ""}/assets/ppdotdev_midjourney_react_demo_background_circle_0.webp`} />
-        <img src={`${import.meta.env.DEV ? "/src" : ""}/assets/ppdotdev_midjourney_react_demo_background_circle_25.webp`} />
-        <img src={`${import.meta.env.DEV ? "/src" : ""}/assets/ppdotdev_midjourney_react_demo_background_circle_50.webp`} />
-        <img src={`${import.meta.env.DEV ? "/src" : ""}/assets/ppdotdev_midjourney_react_demo_background_circle_75.webp`} />
-        <img src={`${import.meta.env.DEV ? "/src" : ""}/assets/ppdotdev_midjourney_react_demo_background_circle_100.webp`} />
+        <img src={`${import.meta.env.DEV ? "/src" : "/react-midjourney-ui"}/assets/ppdotdev_midjourney_react_demo_background_circle_0.webp`} />
+        <img src={`${import.meta.env.DEV ? "/src" : "/react-midjourney-ui"}/assets/ppdotdev_midjourney_react_demo_background_circle_25.webp`} />
+        <img src={`${import.meta.env.DEV ? "/src" : "/react-midjourney-ui"}/assets/ppdotdev_midjourney_react_demo_background_circle_50.webp`} />
+        <img src={`${import.meta.env.DEV ? "/src" : "/react-midjourney-ui"}/assets/ppdotdev_midjourney_react_demo_background_circle_75.webp`} />
+        <img src={`${import.meta.env.DEV ? "/src" : "/react-midjourney-ui"}/assets/ppdotdev_midjourney_react_demo_background_circle_100.webp`} />
       </div>
     </>
   )
@@ -41,7 +41,7 @@ const Main = ({ setSignUpStage }: { setSignUpStage: Dispatch<SetStateAction<stri
             <GitHubIcon />
           </a>
           <a className="navbar-menu-vite" href="https://vitejs.dev/">
-            <img src={`${import.meta.env.DEV ? "/src" : ""}/assets/vite.svg`} alt="vite-logo" />
+            <img src={`${import.meta.env.DEV ? "/src" : "/react-midjourney-ui"}/assets/vite.svg`} alt="vite-logo" />
           </a>
         </div>
       </header>
