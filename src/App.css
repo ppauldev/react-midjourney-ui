@@ -23,29 +23,8 @@ body {
   max-height: 70vh;
   position: absolute;
   right: 0;
-  transition: background-image 0.4s;
   width: 60vw;
   z-index: 10;
-}
-
-.stage-25 {
-  background-image: url('./assets/ppdotdev_midjourney_react_demo_background_circle_25.webp');
-  transition: background-image 0.4s;
-}
-
-.stage-50 {
-  background-image: url('./assets/ppdotdev_midjourney_react_demo_background_circle_50.webp');
-  transition: background-image 0.4s;
-}
-
-.stage-75 {
-  background-image: url('./assets/ppdotdev_midjourney_react_demo_background_circle_75.webp');
-  transition: background-image 0.4s;
-}
-
-.stage-100 {
-  background-image: url('./assets/ppdotdev_midjourney_react_demo_background_circle_100.webp');
-  transition: background-image 0.4s;
 }
 
 .navbar {
@@ -205,6 +184,17 @@ body {
   z-index: 20;
 }
 
+.perspective {
+  position: absolute;
+  right: 190px;
+  bottom: 176px;
+  height: 80px;
+  width: 80px;
+  transform: perspective(400px) rotateX(-8deg) rotateY(-40deg);
+  transition: all 0.5s ease-in-out;
+  z-index: 30;
+}
+
 .loader {
   display: inline-block;
   position: relative;
@@ -270,4 +260,90 @@ body {
   100% {
     transform: translate(24px, 0);
   }
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@-moz-keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+.fade-in {
+  opacity: 0;
+  -webkit-animation: fadeIn ease-in-out 1;
+  -moz-animation: fadeIn ease-in-out 1;
+  animation: fadeIn ease-in-out 1;
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-duration: 0.5s;
+  -moz-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+}
+
+.fade-out {
+  opacity: 1;
+  -webkit-animation: fadeOut ease-in-out 1;
+  -moz-animation: fadeOut ease-in-out 1;
+  animation: fadeOut ease-in-out 1;
+  -webkit-animation-fill-mode: backwards;
+  -moz-animation-fill-mode: backwards;
+  animation-fill-mode: backwards;
+  -webkit-animation-duration: 0.5s;
+  -moz-animation-duration: 0.5s;
+  animation-duration: 0.5s;
 }

@@ -4,25 +4,20 @@ import { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react';
 import './App.css'
 
 const App = () => {
-  const [signUpStage, setSignUpStage] = useState("")
+  const [signUpStage, setSignUpStage] = useState<number | null>(null)
 
   return (
     <>
       <div className="base">
         <Main setSignUpStage={setSignUpStage} />
       </div>
-      <div className={`responsive-background-image ${'stage-' + signUpStage}`} />
-      <div id="preload">
-        <img src={`${import.meta.env.DEV ? "/src" : "/react-midjourney-ui"}/assets/ppdotdev_midjourney_react_demo_background_circle_25.webp`} />
-        <img src={`${import.meta.env.DEV ? "/src" : "/react-midjourney-ui"}/assets/ppdotdev_midjourney_react_demo_background_circle_50.webp`} />
-        <img src={`${import.meta.env.DEV ? "/src" : "/react-midjourney-ui"}/assets/ppdotdev_midjourney_react_demo_background_circle_75.webp`} />
-        <img src={`${import.meta.env.DEV ? "/src" : "/react-midjourney-ui"}/assets/ppdotdev_midjourney_react_demo_background_circle_100.webp`} />
-      </div>
+      <LoadingSpinner state={signUpStage} />
+      <div className="responsive-background-image" />
     </>
   )
 }
 
-const Main = ({ setSignUpStage }: { setSignUpStage: Dispatch<SetStateAction<string>> }) => {
+const Main = ({ setSignUpStage }: { setSignUpStage: Dispatch<SetStateAction<number | null>> }) => {
   const [isSending, setIsSending] = useState(false)
   const [email, setEmail] = useState('')
 
@@ -68,26 +63,21 @@ const JoinSection = ({ email, setEmail, isSending, setIsSending, setSignUpStage 
 
   const handleChangeSignUpStage = (stage: string) => {
     if (stage === 'focus' && !email) {
-      console.log('stage 25')
-      setSignUpStage("25")
+      setSignUpStage(0)
     }
     if (stage === "blur" && !email) {
-      setSignUpStage("")
+      setSignUpStage(null)
     }
     if (stage === 'blur' && email) {
-      console.log('greater than stage 25')
-
       if (email && !email.match(
         /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
       )) {
-        console.log('stage 50')
-        setSignUpStage("50")
+        setSignUpStage(55)
       }
       if (email && email.match(
         /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
       )) {
-        console.log('stage 75')
-        setSignUpStage("75")
+        setSignUpStage(80)
       }
     }
   }
@@ -105,7 +95,7 @@ const JoinSection = ({ email, setEmail, isSending, setIsSending, setSignUpStage 
       .then((result) => {
         console.log(result.text)
         setIsSending(false)
-        setSignUpStage("100")
+        setSignUpStage(100)
       }, (error) => {
         console.log(error.text)
         setIsSending(false)
@@ -116,25 +106,27 @@ const JoinSection = ({ email, setEmail, isSending, setIsSending, setSignUpStage 
   useEffect(() => {
     if (!email) {
       if (document.activeElement !== inputRef.current) {
-        setSignUpStage("")
+        setSignUpStage(null)
         return
       } else {
-        setSignUpStage("25")
+        setSignUpStage(0)
         return
       }
     }
 
-    if (email && !email.match(
-      /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-    )) {
-      console.log('stage 50')
-      setSignUpStage("50")
+    if (email && email.length === 1) {
+      setSignUpStage(15)
+    }
+    if (email && email.length > 1 && !email.includes("@")) {
+      setSignUpStage(35)
+    }
+    if (email && email.length > 1 && email.includes("@")) {
+      setSignUpStage(55)
     }
     if (email && email.match(
       /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     )) {
-      console.log('stage 75')
-      setSignUpStage("75")
+      setSignUpStage(80)
     }
   }, [email])
 
@@ -200,5 +192,107 @@ const ViteIcon = (): JSX.Element => {
     </svg>
   )
 }
+
+const LoadingSpinner = ({ state }: { state: number | null }) => {
+  if (state === null) return null;
+
+  return (
+    <div className="perspective">
+      <CircularProgress
+        size={80}
+        strokeWidth={8}
+        percentage={state}
+        color="green"
+      />
+    </div>
+  )
+}
+
+const CircularProgress = ({ size, strokeWidth, percentage, color }: any) => {
+  const [progress, setProgress] = useState(0);
+  const [showComplete, setShowComplete] = useState(false);
+
+  useEffect(() => {
+    setProgress(percentage);
+
+    if (percentage === 100) {
+      setTimeout(() => setShowComplete(true), 1000);
+    }
+  }, [percentage]);
+
+  const viewBox = `0 0 ${size} ${size}`;
+  const radius = (size - strokeWidth) / 2;
+  const circumference = radius * Math.PI * 2;
+  const dash = (progress * circumference) / 100;
+
+  return (
+    <>
+      {!showComplete && (
+        <div className="fade-in">
+          <svg width={size} height={size} viewBox={viewBox}>
+            <circle
+              fill="none"
+              stroke="white"
+              cx={size / 2}
+              cy={size / 2}
+              r={radius}
+              strokeWidth={`${strokeWidth}px`}
+            />
+            <circle
+              fill="none"
+              stroke={color}
+              cx={size / 2}
+              cy={size / 2}
+              r={radius}
+              strokeWidth={`${strokeWidth}px`}
+              transform={`rotate(-90 ${size / 2} ${size / 2})`}
+              strokeDasharray={[dash, circumference - dash]}
+              strokeLinecap="round"
+              style={{ transition: "all 0.5s" }}
+            />
+            <text
+              fill="#314152"
+              fontSize="20px"
+              fontWeight="600"
+              x="50%"
+              y="50%"
+              dy="8px"
+              textAnchor="middle"
+            >
+              {`${percentage}%`}
+            </text>
+          </svg>
+        </div>
+      )}
+      {showComplete && (
+        <div className="fade-in">
+          <svg width={size} height={size} viewBox={viewBox}>
+            <circle
+              fill="none"
+              stroke="white"
+              cx={size / 2}
+              cy={size / 2}
+              r={radius}
+              strokeWidth={`${strokeWidth}px`}
+            />
+            <circle
+              fill="none"
+              stroke={color}
+              cx={size / 2}
+              cy={size / 2}
+              r={radius}
+              strokeWidth={`${strokeWidth}px`}
+              transform={`rotate(-90 ${size / 2} ${size / 2})`}
+              strokeDasharray={[circumference, 0]}
+              strokeLinecap="round"
+              style={{ transition: "all 0.5s" }}
+            />
+            <path transform="translate(-10,-10)" d="M30 50 L43 63 L70 35" stroke="green" stroke-width={strokeWidth} fill="none" />
+          </svg>
+        </div>
+      )}
+    </>
+  );
+};
 
 export default App
