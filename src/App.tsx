@@ -13,7 +13,7 @@ const App = () => {
       </div>
       <div className="responsive-background-image">
         <LoadingSpinner state={signUpStage} />
-        <img src={`${import.meta.env.PROD ? "" : "src/"}assets/ppdotdev_midjourney_react_demo_background.webp`} />
+        <img src={`${import.meta.env.DEV ? "public/" : ""}ppdotdev_midjourney_react_demo_background.webp`} />
       </div>
     </>
   )
