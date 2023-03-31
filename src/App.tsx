@@ -11,8 +11,10 @@ const App = () => {
       <div className="base">
         <Main setSignUpStage={setSignUpStage} />
       </div>
-      <LoadingSpinner state={signUpStage} />
-      <div className="responsive-background-image" />
+      <div className="responsive-background-image">
+        <LoadingSpinner state={signUpStage} />
+        <img src="src/assets/ppdotdev_midjourney_react_demo_background.webp" />
+      </div>
     </>
   )
 }
@@ -43,8 +45,14 @@ const Main = ({ setSignUpStage }: { setSignUpStage: Dispatch<SetStateAction<numb
         <h1>
           Blazing fast React component creation<br />with the power of AI
         </h1>
-        <h2>
+        <h2 className="intro-basic fade-in">
           Are you tired of spending countless hours creating React components from scratch? <br />Say goodbye to manual labor and hello to the future of development with our AI-powered component creation tool. Don't miss out on this opportunity to revolutionize your React development. <br /><br />Join our waiting list today and be the first to know when our AI-powered component creation tool becomes available.
+        </h2>
+        <h2 className="intro-extended fade-in">
+          Are you tired of spending countless hours creating React components from scratch?<br /><br />Say goodbye to manual labor and hello to the future of development with our AI-powered component creation tool. Our innovative technology utilizes machine learning algorithms to automatically generate high-quality React components, saving you time and increasing productivity.
+        </h2>
+        <h2 className="cta-extended fade-in">
+          Don't miss out on this opportunity to revolutionize your React development.<br /><br />Join our waiting list today and be the first to know when our AI-powered component creation tool becomes available. Simply enter your email below and stay up to date on all the latest news and updates. Subscribe now and be one step ahead of the competition!
         </h2>
         <JoinSection
           email={email}
@@ -180,13 +188,13 @@ const ViteIcon = (): JSX.Element => {
       <path d="M292.965 1.5744L156.801 28.2552C154.563 28.6937 152.906 30.5903 152.771 32.8664L144.395 174.33C144.198 177.662 147.258 180.248 150.51 179.498L188.42 170.749C191.967 169.931 195.172 173.055 194.443 176.622L183.18 231.775C182.422 235.487 185.907 238.661 189.532 237.56L212.947 230.446C216.577 229.344 220.065 232.527 219.297 236.242L201.398 322.875C200.278 328.294 207.486 331.249 210.492 326.603L212.5 323.5L323.454 102.072C325.312 98.3645 322.108 94.137 318.036 94.9228L279.014 102.454C275.347 103.161 272.227 99.746 273.262 96.1583L298.731 7.86689C299.767 4.27314 296.636 0.855181 292.965 1.5744Z" fill="url(#paint1_linear)" />
       <defs>
         <linearGradient id="paint0_linear" x1="6.00017" y1="32.9999" x2="235" y2="344" gradientUnits="userSpaceOnUse">
-          <stop stop-color="#41D1FF" />
-          <stop offset="1" stop-color="#BD34FE" />
+          <stop stopColor="#41D1FF" />
+          <stop offset="1" stopColor="#BD34FE" />
         </linearGradient>
         <linearGradient id="paint1_linear" x1="194.651" y1="8.81818" x2="236.076" y2="292.989" gradientUnits="userSpaceOnUse">
-          <stop stop-color="#FFEA83" />
-          <stop offset="0.0833333" stop-color="#FFDD35" />
-          <stop offset="1" stop-color="#FFA800" />
+          <stop stopColor="#FFEA83" />
+          <stop offset="0.0833333" stopColor="#FFDD35" />
+          <stop offset="1" stopColor="#FFA800" />
         </linearGradient>
       </defs>
     </svg>
@@ -194,16 +202,16 @@ const ViteIcon = (): JSX.Element => {
 }
 
 const LoadingSpinner = ({ state }: { state: number | null }) => {
-  if (state === null) return null;
-
   return (
     <div className="perspective">
-      <CircularProgress
-        size={80}
-        strokeWidth={8}
-        percentage={state}
-        color="green"
-      />
+      {state !== null && (
+        <CircularProgress
+          size={80}
+          strokeWidth={8}
+          percentage={state}
+          color="green"
+        />
+      )}
     </div>
   )
 }
@@ -287,7 +295,7 @@ const CircularProgress = ({ size, strokeWidth, percentage, color }: any) => {
               strokeLinecap="round"
               style={{ transition: "all 0.5s" }}
             />
-            <path transform="translate(-10,-10)" d="M30 50 L43 63 L70 35" stroke="green" stroke-width={strokeWidth} fill="none" />
+            <path transform="translate(-10,-10)" d="M30 50 L43 63 L70 35" stroke="green" strokeWidth={strokeWidth} fill="none" />
           </svg>
         </div>
       )}
