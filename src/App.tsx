@@ -254,6 +254,7 @@ const CircularProgress = ({ size, strokeWidth, percentage, color }: any) => {
               r={radius}
               strokeWidth={`${strokeWidth}px`}
               transform={`rotate(-90 ${size / 2} ${size / 2})`}
+              // @ts-expect-error: Mismatching typing, works
               strokeDasharray={[dash, circumference - dash]}
               strokeLinecap="round"
               style={{ transition: "all 0.5s" }}
@@ -291,6 +292,7 @@ const CircularProgress = ({ size, strokeWidth, percentage, color }: any) => {
               r={radius}
               strokeWidth={`${strokeWidth}px`}
               transform={`rotate(-90 ${size / 2} ${size / 2})`}
+              // @ts-expect-error: Mismatching typing, works
               strokeDasharray={[circumference, 0]}
               strokeLinecap="round"
               style={{ transition: "all 0.5s" }}
