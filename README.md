@@ -9,7 +9,7 @@ The following prompt was used:
 
 > "a landing page which shows a waiting list call-to-action for a new software startup which sells chatgpt-build products with a minimalistic color theme using the latest ux ui design trends of 2023"
 
-The following image was used as the starting point for the next steps.
+The following image was one of the result of the above prompt and was used as the starting point for the next steps.
 
 ![Midjourney V4 - UX/UI Design Result](https://user-images.githubusercontent.com/97476824/229309518-fbdb6f41-c538-418f-98af-8c6b9781aafc.png)
 
