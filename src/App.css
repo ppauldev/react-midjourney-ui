@@ -4,7 +4,7 @@ body {
   color: #314152;
 }
 
-.base {
+.landingpage {
   height: 100vh;
   min-height: 400px;
   width: 100vw;
@@ -177,6 +177,17 @@ body {
 .content section form button:hover {
   border: none;
   cursor: pointer;
+  z-index: 20;
+}
+
+#error {
+  bottom: 42px;
+  color: red;
+  font-size: 0.8rem;
+  left: 20px;
+  padding: 0;
+  position: absolute;
+  width: 400px;
   z-index: 20;
 }
 
