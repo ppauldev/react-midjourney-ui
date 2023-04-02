@@ -1,0 +1,87 @@
+@media (width: 1366px) and (height: 1024px) {
+  .content h2 {
+    font-size: 1.2rem;
+    font-weight: 300;
+    margin: 0 0 0 10px;
+    padding-top: 40px;
+    transition: all 0.5s ease-in-out;
+    width: 60vw;
+  }
+
+  h2.intro-basic {
+    display: none;
+  }
+
+  h2.intro-extended {
+    font-size: 1.6rem;
+    width: 76vw;
+  }
+
+  h2.cta-extended {
+    font-size: 1.6rem;
+    width: 62vw;
+  }
+
+  .content section h3 {
+    font-size: 2.4rem;
+  }
+
+  .responsive-background-image>img {
+    bottom: 0;
+    height: 700px;
+    position: absolute;
+    right: 0;
+    transition: all 0.5s ease-in-out;
+    width: auto;
+    z-index: 10;
+  }
+
+  .perspective {
+    position: absolute;
+    right: 338px;
+    bottom: 310px;
+    height: 80px;
+    width: 80px;
+    transform: perspective(400px) rotateX(-8deg) rotateY(-40deg) scale(1.55);
+    transition: all 0.5s ease-in-out;
+    z-index: 30;
+  }
+
+  .content section form input {
+    border: none;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    -webkit-box-shadow: 0px 4px 10px 4px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0px 4px 10px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 10px 4px rgba(0, 0, 0, 0.1);
+    font-size: 2rem;
+    height: 80px;
+    padding: 0 0 0 20px;
+    width: 560px;
+    z-index: 20;
+  }
+
+  .content section form button {
+    align-items: center;
+    background-color: #314152;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    -webkit-box-shadow: 0px 4px 10px 4px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0px 4px 10px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 10px 4px rgba(0, 0, 0, 0.1);
+    color: white;
+    display: flex;
+    justify-content: center;
+    font-size: 1.6rem;
+    font-weight: 400;
+    height: 80px;
+    outline: none;
+    padding: 0;
+    text-transform: uppercase;
+    transition: none;
+    width: 140px;
+    z-index: 20;
+  }
+}

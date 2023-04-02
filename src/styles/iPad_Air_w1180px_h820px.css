@@ -1,0 +1,54 @@
+@media (height: 820px) and (width: 1180px) {
+  h2.intro-basic {
+    display: none;
+  }
+
+  h2.intro-extended {
+    font-size: 1.4rem;
+    width: 74vw;
+  }
+
+  h2.cta-extended {
+    font-size: 1.4rem;
+    width: 60vw;
+  }
+
+  .content section h3 {
+    display: none;
+  }
+
+  .responsive-background-image>img {
+    bottom: 0;
+    height: 561px;
+    position: absolute;
+    right: 0;
+    transition: all 0.5s ease-in-out;
+    width: auto;
+    z-index: 10;
+  }
+
+  .perspective {
+    position: absolute;
+    right: 262px;
+    bottom: 240px;
+    height: 80px;
+    width: 80px;
+    transform: perspective(400px) rotateX(-8deg) rotateY(-40deg) scale(1.25);
+    transition: all 0.5s ease-in-out;
+    z-index: 30;
+  }
+
+  .content section form input {
+    border: none;
+    border-top-left-radius: 14px;
+    border-bottom-left-radius: 14px;
+    -webkit-box-shadow: 0px 4px 10px 4px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0px 4px 10px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 10px 4px rgba(0, 0, 0, 0.1);
+    font-size: 1.4rem;
+    height: 60px;
+    padding: 0 0 0 20px;
+    width: 500px;
+    z-index: 20;
+  }
+}

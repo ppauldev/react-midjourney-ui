@@ -1,0 +1,38 @@
+@media (min-height: 700px) and (max-height: 800px) and (min-width: 1000px) {
+  h2.intro-basic {
+    display: none;
+  }
+
+  h2.intro-extended {
+    font-size: 1.2rem;
+  }
+
+  h2.cta-extended {
+    font-size: 1.2rem;
+  }
+
+  .content section h3 {
+    font-size: 1.8rem;
+  }
+
+  .responsive-background-image>img {
+    bottom: 0;
+    height: 421px;
+    position: absolute;
+    right: 0;
+    transition: all 0.5s ease-in-out;
+    width: auto;
+    z-index: 10;
+  }
+
+  .perspective {
+    position: absolute;
+    right: 186px;
+    bottom: 172px;
+    height: 80px;
+    width: 80px;
+    transform: perspective(400px) rotateX(-8deg) rotateY(-40deg) scale(1);
+    transition: all 0.5s ease-in-out;
+    z-index: 30;
+  }
+}

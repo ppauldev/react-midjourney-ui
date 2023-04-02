@@ -1,6 +1,6 @@
 import emailjs from '@emailjs/browser'
 import { useEffect, useRef } from 'react'
-import './App.css'
+import './styles/index.css'
 
 import { GitHubIcon, ViteIcon } from './components/Icons'
 import { CircularProgressShiftedPlane as CircularProgress } from './components/CircularProgress'
@@ -66,7 +66,7 @@ const Content = () => {
   return (
     <>
       <h1 className="fade-in">
-        Blazing fast React component creation<br />with the power of AI
+        Blazing fast React component creation with the power of AI
       </h1>
       <h2 className="intro-basic fade-in">
         Are you tired of spending countless hours creating React components from scratch? <br />Say goodbye to manual labor and hello to the future of development with our AI-powered component creation tool. Don't miss out on this opportunity to revolutionize your React development. <br /><br />Join our waiting list today and be the first to know when our AI-powered component creation tool becomes available.
