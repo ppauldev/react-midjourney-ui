@@ -98,24 +98,40 @@ const JoinSection = () => {
 
     setIsSending(true)
 
-    emailjs.sendForm(
-      import.meta.env.VITE_EMAILJS_SERVICE_ID,
-      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-      (event.target as HTMLFormElement),
-      import.meta.env.VITE_EMAILJS_USER_ID)
-      .then((result) => {
-        setIsSending(false)
-        setPercentage(100)
-      }, (error) => {
-        setIsSending(false)
+    new Promise((resolve, reject) => {
+      setTimeout(resolve, 3000)
+    }).then(() => {
+      setIsSending(false)
+      setPercentage(100)
+    }).catch(() => {
+      setIsSending(false)
 
-        const errorElement = document.getElementById("error")
-        if (!errorElement) return;
+      const errorElement = document.getElementById("error")
+      if (!errorElement) return;
 
-        errorElement.textContent = "An error occurred during the sign up"
-        setTimeout(() => { errorElement.textContent = "" }, 3000)
-      }
-      )
+      errorElement.textContent = "An error occurred during the sign up"
+      setTimeout(() => { errorElement.textContent = "" }, 3000)
+    })
+
+    // Deactivate until launch:
+    // emailjs.sendForm(
+    //   import.meta.env.VITE_EMAILJS_SERVICE_ID,
+    //   import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+    //   (event.target as HTMLFormElement),
+    //   import.meta.env.VITE_EMAILJS_USER_ID)
+    //   .then((result) => {
+    //     setIsSending(false)
+    //     setPercentage(100)
+    //   }, (error) => {
+    //     setIsSending(false)
+
+    //     const errorElement = document.getElementById("error")
+    //     if (!errorElement) return;
+
+    //     errorElement.textContent = "An error occurred during the sign up"
+    //     setTimeout(() => { errorElement.textContent = "" }, 3000)
+    //   }
+    // )
   }
 
   useEffect(() => {
